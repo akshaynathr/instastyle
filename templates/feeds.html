@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Feeds</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/friendList/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="static/friendList/css/round-about.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .friends { border: 1px solid rgba(0,0,0,.6);}
+      .friend { padding:2% ;  background-color: #e8e8e8;}
+      #loading  {  }
+    </style>
+</head>
+
+<body style="padding-top:0px;">
+<div id="dummy" style="display:none;"> {{ apiKey }}</div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation" style="position:fixed;width:100%; z-index:100;">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      &nbsp;
+      <div class="btn-group">    
+        <a href="#" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-chevron-down"></i> <span class="hidden-xs">Discover</span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Boys styles</a></li>
+
+          <li class="divider"><a href="#">Separated link</a></li>
+          <li><a href="#">Girls fashion</a></li>
+          <!--<li class="divider"></li>
+		  <li><a href="#">One more separated link</a></li>-->
+        </ul> 
+      </div>  
+    </div>
+  <div class="navbar-center navbar-brand" href="#"></div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+     
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+      </form>
+      <a class="navbar-brand" style="margin-left:15%;">Instastyle</a>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/discover_page">Home</a></li>
+        <li><a href="/discover_my_feed">Profile</a></li>
+        <li class="dropdown">
+          <a href="#" clas="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container"  >
+<div class='row'> 
+<div class="col-md-12" style="margin-top:100px;"> </div>
+
+</div>
+		
+    <!-- <div class="row" >
+      <div class="col-md-2" > </div>
+      <div class="col-md-6" > 
+        <hr/>
+        <div style="margin-bottom:10px;"><img src="" style="width:30px; height:30px; border-radius:100%"><b> Antony Johnson</b><p style="float:right; font-size:10px; padding-top:10px;"> 23 hours ago</p> </div>
+        <h5 style="color:rgba(0,0,0,.6);padding-top:2%;padding-left:1%;">Jacket for the wind</h5>
+        <div class="" style="background:url('static/uploads/m.jpg');background-size:cover;width:100%;height:500px; border-radius:10px;"> </div>
+
+        <img  src="static/love.jpg" style="display:inline;width:40px; height:40px; border-radius:100%; ">  <p style="display:inline"> 144</p>  
+        <div style="float:right; padding:1%;">
+
+          <img src="" style="width:25px; height:25px; border-radius:100%">  
+        </div>
+      </div>
+      <div class="col-md-4" style="text-align:center; padding-top:10%;" >
+
+       
+
+      <div style="display:block;">
+        <img src="static/jacket.png" style="display:inline;width:50px; height:50px; border-radius:100%"><div style="display:inline;"><p > Jacket from Lee. Strong and firm. Bought from amazon  </p></div>
+
+      </div>
+         
+
+      </div>
+
+
+      </div>
+ -->
+ <!-- FRIENDLIST  -->
+
+  <div class="row ">
+      <div class="col-md-3" > </div>
+      <div class="col-md-6 friends" >
+      <h5> Friends to follow </h5> 
+      {% for f in friends %}
+        <div class="row friend">
+
+           <img src={{ f.user_image}} style="width:40px; height:40px;border-radius:100%; margin-right:1%;display:inline;"><p style="display:inline;"><a href="/profile2/{{ f.apiKey}}"> <b>{{ f.name }}</b></a>- {{ f.college }}</p>
+
+        </div>
+      {% endfor %}
+         
+
+         
+        
+        <a href="/connect" style="float:right; padding:1%;"> See more </a>
+        
+      </div>
+
+      <div class="col-md-3" > </div>
+ 
+
+  </div>
+
+
+
+		 
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="static/friendList/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/friendList/js/bootstrap.min.js"></script>
+    <script src="static/feeds/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Signup to instastyle </title>
+    
+    
+    <link rel="stylesheet" href="static/login/css/reset.css">
+
+    
+        <link rel="stylesheet" href="static/login/css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <div class="container">
+  <div class="login">
+  	<h1 class="login-heading">
+      <strong>Welcome</strong> Please join.</h1>
+      <p style="color:red">{% with messages = get_flashed_messages() %}
+                               {% if messages %}
+                                  <ul class=flashes>
+                                  {% for message in messages %}
+                                  <li>{{ message }}</li>
+                                  {% endfor %}
+                                  </ul>
+                              {% endif %}
+                              {% endwith %}
+                        </p>
+      <form method="post">
+        <input type="text" name="name" placeholder="Name" required="required" class="input-txt" />
+        <input type="text" name="email" placeholder="Email" required="required" class="input-txt" />
+        <input type="text" name="college" placeholder="College and semester" required="required" class="input-txt" />
+        <select class="form-control selcls input-txt sel"  title="Gender" id="gender" required="required" name="gender">
+ 
+            <option value="M">Male</option>
+ 
+            <option value="F">Female</option>
+ 
+        </select>
+          <input type="username" name="username" placeholder="Username" required="required" class="input-txt" />
+          <input type="password" name="password" placeholder="Password" required="required" class="input-txt" />
+         
+          <div class="login-footer">
+             <a href="/login" class="lnk">
+              <span class="icon icon--min">LogIn</span> 
+              
+            </a>
+            <button type="submit" class="btn btn--right">Sign up  </button>
+    
+          </div>
+      </form>
+  </div>
+</div>
+    
+        <script src="static/login/js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
